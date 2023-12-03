@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sinatra App</title>
+  </head>
+  <body>
+        <h1>User name: <%=  @result['data']['user']['name'] %></h1>
+    <h2>Repositories:</h2>
+      <ul>
+        <%  @result['data']['user']['repositories']['edges'].each do |edge| %>
+          <li><%= edge['node']['name'] %></li>
+        <% end %>
+  </body>
+</html>
