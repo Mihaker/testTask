@@ -2,6 +2,7 @@
 
 source 'https://rubygems.org'
 
+gem 'puma', '~> 5.0'
 gem 'graphql', '~> 2.1'
 gem 'httparty'
 gem 'rubocop'
