@@ -51,7 +51,7 @@ class TestTaskApp < Sinatra::Base
       }
 
       response = HTTParty.post(endpoint_url, body: query_payload.to_json, headers: headers).parsed_response
-  
+
       if response['data']['user'].nil?
         @error_message = "Помилка: користувач з логіном '#{input_user}' не існує."
         erb :error_page

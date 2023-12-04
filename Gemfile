@@ -2,14 +2,14 @@
 
 source 'https://rubygems.org'
 
-gem 'puma', '~> 5.0'
+gem 'dotenv', '~> 2.7'
 gem 'graphql', '~> 2.1'
 gem 'httparty'
+gem 'puma', '~> 5.0'
 gem 'rubocop'
 gem 'rubocop-rspec'
 gem 'sinatra'
 gem 'sinatra-contrib'
-gem 'dotenv', '~> 2.7'
 
 group :test do
   gem 'rack-test'
