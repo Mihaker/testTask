@@ -1,8 +1,8 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
-
-RSpec.describe TestTaskApp, type: :controller do 
-
+RSpec.describe TestTaskApp, type: :controller do
   include Rack::Test::Methods
 
   def app
@@ -13,8 +13,8 @@ RSpec.describe TestTaskApp, type: :controller do
     context 'when login valid' do
       it 'fetches user dat a from the API' do
         VCR.use_cassette('success_api_request') do
-          get '/set_name', { login: "mihaker" } 
-          
+          get '/set_name', { login: 'mihaker' }
+
           expect(last_response).to be_ok
           expect(last_response.body).to include('Mykhailo Ostapenko')
           expect(last_response.body).to include('rozetka')
@@ -23,14 +23,14 @@ RSpec.describe TestTaskApp, type: :controller do
       end
     end
 
-    context "when login null" do
+    context 'when login null' do
       it 'try user dat a from the API' do
         VCR.use_cassette('error_api_request') do
-          get '/set_name', { login: "" } 
-              
+          get '/set_name', { login: '' }
+
           expect(last_response).not_to be_ok
         end
       end
     end
-  end  
+  end
 end
