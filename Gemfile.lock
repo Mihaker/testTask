@@ -7,6 +7,7 @@ GEM
     crack (0.4.5)
       rexml
     diff-lcs (1.5.0)
+    dotenv (2.8.1)
     graphql (2.1.6)
       racc (~> 1.4)
     hashdiff (1.0.1)
@@ -93,6 +94,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  dotenv (~> 2.7)
   graphql (~> 2.1)
   httparty
   rack-test

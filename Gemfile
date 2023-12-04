@@ -8,6 +8,7 @@ gem 'rubocop'
 gem 'rubocop-rspec'
 gem 'sinatra'
 gem 'sinatra-contrib'
+gem 'dotenv', '~> 2.7'
 
 group :test do
   gem 'rack-test'
