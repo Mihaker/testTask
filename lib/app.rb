@@ -36,18 +36,29 @@ class TestTaskApp < Sinatra::Base
 
     login = { 'login' => input_user }
 
-    headers = {
-      'Content-Type' => 'application/json',
-      'Authorization' => "Bearer #{GITHUB_TOKEN}"
-    }
+    if input_user.nil? || input_user.empty?
+      @error_message = "Помилка: параметр 'login' намає бути порожнім"
+      erb :error_page
+    else
+      headers = {
+        'Content-Type' => 'application/json',
+        'Authorization' => "Bearer #{GITHUB_TOKEN}"
+      }
 
-    query_payload = {
-      query: query_string,
-      variables: login
-    }
+      query_payload = {
+        query: query_string,
+        variables: login
+      }
 
-    @result = HTTParty.post(endpoint_url, body: query_payload.to_json, headers: headers).parsed_response
+      response = HTTParty.post(endpoint_url, body: query_payload.to_json, headers: headers).parsed_response
 
-    erb :set
+      if response['data']['user'].nil?
+        @error_message = "Помилка: користувач з логіном '#{input_user}' не існує."
+        erb :error_page
+      else
+        @result = response
+        erb :set
+      end
+    end
   end
 end

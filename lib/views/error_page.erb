@@ -6,7 +6,7 @@
   <title>Sinatra App</title>
 </head>
   <body>
-    <h1>Ведіть Github Login</h1>
+    <h1><%=  @error_message %></h1>
 
     <form action="set_name" method="get">
       <input type="text" name="login" value="<%= params[:login]%>">
